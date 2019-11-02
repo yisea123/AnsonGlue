@@ -1,0 +1,438 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D968A7E2-7A98-43F9-B419-7F94B441903A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AnsonGlue</RootNamespace>
+    <AssemblyName>AnsonGlue</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>resource\Glue.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="QWhale.Common, Version=1.62.4104.36375, Culture=neutral, PublicKeyToken=da632fd1713dff10" />
+    <Reference Include="QWhale.Editor, Version=1.62.4104.36377, Culture=neutral, PublicKeyToken=da632fd1713dff10" />
+    <Reference Include="QWhale.Syntax, Version=1.62.4104.36376, Culture=neutral, PublicKeyToken=da632fd1713dff10" />
+    <Reference Include="QWhale.Syntax.Parsers, Version=1.62.4104.36376, Culture=neutral, PublicKeyToken=da632fd1713dff10" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Equipment\Blance\AbstractClass\BalanceAbs.cs" />
+    <Compile Include="Equipment\Blance\ConcreteClass\Sartorius.cs" />
+    <Compile Include="Equipment\ScannerGun\AbstractClass\ScannerGunAbs.cs" />
+    <Compile Include="Equipment\ScannerGun\ConcreteClass\CognexScanner.cs" />
+    <Compile Include="Equipment\Vision\AbstractClass\VisionAbs.cs" />
+    <Compile Include="Equipment\Vision\ConcreteClass\AnsonVision.cs" />
+    <Compile Include="Kernel\Kernel.cs" />
+    <Compile Include="Tool\gts.cs" />
+    <Compile Include="Equipment\Motion\Business\ConcreteClass\GTSMotion.cs" />
+    <Compile Include="Equipment\Motion\Business\AbstractClass\MotionBase.cs" />
+    <Compile Include="Equipment\Motion\Function\AbstractClass\MotionWorkBase.cs" />
+    <Compile Include="Equipment\Motion\Function\ConcreteClass\MotionWorkChristmas.cs" />
+    <Compile Include="Tool\Communication\AbstractClass\CmtAbs.cs" />
+    <Compile Include="Tool\Communication\ConcreteClass\CmtSerialPort.cs" />
+    <Compile Include="Tool\Communication\ConcreteClass\CmtTCPClient.cs" />
+    <Compile Include="Tool\Communication\Factory\AbstractClass\CmtFactoryAbs.cs" />
+    <Compile Include="Tool\Communication\Factory\ConcreteClass\SerialPortFactory.cs" />
+    <Compile Include="Tool\Communication\Factory\ConcreteClass\TcpClientFactory.cs" />
+    <Compile Include="Tool\IniFile.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Repaint\RoundButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Repaint\RoundButton.Designer.cs">
+      <DependentUpon>RoundButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repaint\RoundPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Repaint\RoundPanel.Designer.cs">
+      <DependentUpon>RoundPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CameraImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\CameraImage.Designer.cs">
+      <DependentUpon>CameraImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\CCheck.Designer.cs">
+      <DependentUpon>CCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CmtSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\CmtSetting.Designer.cs">
+      <DependentUpon>CmtSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FunctionSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FunctionSelect.Designer.cs">
+      <DependentUpon>FunctionSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\GlueMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\GlueMain.Designer.cs">
+      <DependentUpon>GlueMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\IO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\IO.Designer.cs">
+      <DependentUpon>IO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Jog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Jog.Designer.cs">
+      <DependentUpon>Jog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\MachineParaSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\MachineParaSetting.Designer.cs">
+      <DependentUpon>MachineParaSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ModeSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ModeSelect.Designer.cs">
+      <DependentUpon>ModeSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\OkNg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\OkNg.Designer.cs">
+      <DependentUpon>OkNg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\OperationInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\OperationInfo.Designer.cs">
+      <DependentUpon>OperationInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ParaSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ParaSetting.Designer.cs">
+      <DependentUpon>ParaSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PluginDebug.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\PluginDebug.Designer.cs">
+      <DependentUpon>PluginDebug.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PositionSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\PositionSetting.Designer.cs">
+      <DependentUpon>PositionSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Project.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Project.Designer.cs">
+      <DependentUpon>Project.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CGlueParaSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\CGlueParaSetting.Designer.cs">
+      <DependentUpon>CGlueParaSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CVisionSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\CVisionSetting.Designer.cs">
+      <DependentUpon>CVisionSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Warning.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Warning.Designer.cs">
+      <DependentUpon>Warning.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UI\CameraImage.resx">
+      <DependentUpon>CameraImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\CCheck.resx">
+      <DependentUpon>CCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\CmtSetting.resx">
+      <DependentUpon>CmtSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FunctionSelect.resx">
+      <DependentUpon>FunctionSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\GlueMain.resx">
+      <DependentUpon>GlueMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\IO.resx">
+      <DependentUpon>IO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Jog.resx">
+      <DependentUpon>Jog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\MachineParaSetting.resx">
+      <DependentUpon>MachineParaSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ModeSelect.resx">
+      <DependentUpon>ModeSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\OkNg.resx">
+      <DependentUpon>OkNg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\OperationInfo.resx">
+      <DependentUpon>OperationInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ParaSetting.resx">
+      <DependentUpon>ParaSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\PluginDebug.resx">
+      <DependentUpon>PluginDebug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\PositionSetting.resx">
+      <DependentUpon>PositionSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Project.resx">
+      <DependentUpon>Project.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\CGlueParaSetting.resx">
+      <DependentUpon>CGlueParaSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\CVisionSetting.resx">
+      <DependentUpon>CVisionSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Warning.resx">
+      <DependentUpon>Warning.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\Warnning.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\Warnning_sel.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\Anson.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\ProduceData.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\ProduceData_sel.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\Down.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\OpenExcelDir.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\G.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\Glue.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\Glue.rc2" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\Home.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\Home_sel.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\Vision.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\OpenImageDir.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\Vison_sel.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\J.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\Left.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\O.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\Suapend.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\Suspend_sel.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\Right.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\Setting.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\Setting_sel.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\Start.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\Start_sel.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\Stop.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\Stop_sel.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\Up.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\Login.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\Login_sel.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\test.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\Image.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\Coordinate.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
